@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">01.Hello Binding</string>
+    <string name="hello_databinding">Hello DataBinding!</string>
+</resources>
