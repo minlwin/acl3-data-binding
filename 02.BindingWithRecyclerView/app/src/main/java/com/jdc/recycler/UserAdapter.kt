@@ -1,7 +1,6 @@
 package com.jdc.recycler
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -9,16 +8,11 @@ import com.jdc.recycler.databinding.UserItemBinding
 
 class UserAdapter: RecyclerView.Adapter<UserAdapter.UserVH>() {
 
-    class UserVH(itemView:View): ViewHolder(itemView) {
-        val binding:UserItemBinding = UserItemBinding.bind(itemView)
-    }
+    class UserVH(val binding: UserItemBinding): ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserVH {
-        return LayoutInflater.from(parent.context)
-            .inflate(R.layout.user_item, parent, false).let {
-            UserVH(it)
-        }
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = UserVH(
+        UserItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    )
 
     override fun getItemCount(): Int {
         return UserModel.users.size
