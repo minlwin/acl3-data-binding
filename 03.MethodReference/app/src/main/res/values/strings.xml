@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">03.Method Reference</string>
+    <string name="method_reference">Method Reference</string>
+    <string name="_0">0</string>
+    <string name="count_up">Count Up</string>
+    <string name="using_observables">Using Observables</string>
+    <string name="using_listener">Using Listener</string>
+</resources>

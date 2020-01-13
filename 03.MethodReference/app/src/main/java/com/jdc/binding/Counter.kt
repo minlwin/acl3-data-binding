@@ -1,13 +1,14 @@
 package com.jdc.binding
 
 import android.view.View
-import androidx.databinding.ObservableInt
+import com.jdc.binding.databinding.ActivityMainBinding
 
-class Counter() {
+class Counter(private val binding: ActivityMainBinding) {
 
-    var count = ObservableInt(0)
+    var count:Int = 0
 
     fun countUp(view: View) {
-        count.set(count.get() + 1)
+        count = count + 1
+        binding.counter = this
     }
 }

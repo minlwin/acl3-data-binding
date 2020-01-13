@@ -5,8 +5,9 @@
 
     <data>
         <import type="java.util.List" />
-        <import type="com.jdc.binding.User" alias="OtherUser" />
-        <variable name="user" type="OtherUser" />
+        <variable
+            name="user"
+            type="com.jdc.binding.User" />
         <variable name="list" type="List&lt;String>" />
         <variable name="map" type="java.util.Map&lt;String,String>" />
     </data>
