@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">04.Observables</string>
+    <string name="using_observables">Using Observables</string>
+    <string name="count_up">Count Up</string>
+</resources>
