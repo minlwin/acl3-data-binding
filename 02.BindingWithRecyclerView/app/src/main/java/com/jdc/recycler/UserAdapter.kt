@@ -21,6 +21,5 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.UserVH>() {
     override fun onBindViewHolder(holder: UserVH, position: Int) {
         val user = UserModel.users[position]
         holder.binding.setVariable(BR.user, user)
-        holder.binding.executePendingBindings()
     }
 }
