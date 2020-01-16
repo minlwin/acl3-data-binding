@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">01.Hello Binding</string>
-    <string name="hello_databinding">Hello DataBinding!</string>
+    <string name="hello_binding">Hello DataBinding!</string>
+
+    <string-array name="category">
+        <item>Foods</item>
+        <item>Drinks</item>
+        <item>Fashion</item>
+    </string-array>
+
 </resources>
