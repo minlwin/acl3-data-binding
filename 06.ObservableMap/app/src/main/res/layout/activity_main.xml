@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="androidx.databinding.ObservableMap"
+            alias="Map"/>
         <variable
             name="map"
-            type="androidx.databinding.ObservableMap&lt;String,String>" />
+            type="Map&lt;String,String>" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
