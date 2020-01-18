@@ -12,7 +12,11 @@ class MainActivity : AppCompatActivity() {
 
         val binding:ActivityMainBinding = DataBindingUtil
             .setContentView(this, R.layout.activity_main)
-        binding.counter = Counter(binding)
+
+        binding.counter = Counter {
+            this
+        }
+
         binding.checkListener = CheckListener(binding)
     }
 
