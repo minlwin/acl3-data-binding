@@ -1,12 +1,16 @@
 package com.jdc.twoway.adapter
 
 import android.app.DatePickerDialog
+import android.text.InputType
 import android.widget.EditText
 import java.util.*
 
-class DatePickerBuilder {
+object DatePickerFactory {
 
-    constructor(view:EditText) {
+    @JvmStatic
+    fun generate(view:EditText) {
+
+        view.inputType = InputType.TYPE_NULL
 
         val dialog = DatePickerDialog(view.context)
 
