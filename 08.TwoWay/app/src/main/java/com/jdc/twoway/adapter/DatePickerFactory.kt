@@ -8,23 +8,28 @@ import java.util.*
 object DatePickerFactory {
 
     @JvmStatic
-    fun generate(view:EditText) {
+    fun generate(editText:EditText) {
 
-        view.inputType = InputType.TYPE_NULL
+        editText.inputType = InputType.TYPE_NULL
 
-        val dialog = DatePickerDialog(view.context)
+        val defaultDate = Calendar.getInstance()
 
-        dialog.datePicker.setOnDateChangedListener{
-                _, year, month, day ->
-            val calendar = Calendar.getInstance()
-            calendar.set(Calendar.YEAR, year)
-            calendar.set(Calendar.MONTH, month)
-            calendar.set(Calendar.DAY_OF_MONTH, day)
+        val changeListener =
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                val calendar = Calendar.getInstance()
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, monthOfYear)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-            view.setText(DateAdapter.dateFormat.format(calendar.time))
-        }
+                editText.setText(DateAdapter.dateFormat.format(calendar.time))
+            }
 
-        view.setOnClickListener {
+        val dialog = DatePickerDialog(editText.context, changeListener,
+            defaultDate.get(Calendar.YEAR),
+            defaultDate.get(Calendar.MONTH),
+            defaultDate.get(Calendar.DAY_OF_MONTH))
+
+        editText.setOnClickListener {
             dialog.show()
         }
     }
