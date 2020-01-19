@@ -1,10 +1,7 @@
 package com.jdc.twoway.adapter
 
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
