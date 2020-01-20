@@ -58,17 +58,24 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="40dp" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editText"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:text="@={user.name}"
-            android:inputType="textPersonName"
+            app:helperTextEnabled="false"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:text="@={user.name}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/textView2"
@@ -98,16 +105,23 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
-        <EditText
-            android:id="@+id/dob"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dobBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:date="@={user.dob}"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
+            app:layout_constraintTop_toTopOf="@+id/textView3" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:date="@={user.dob}"
+                android:ems="10" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/textView4"
@@ -118,7 +132,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/dob" />
+            app:layout_constraintTop_toBottomOf="@+id/dobBox" />
 
         <TextView
             android:id="@+id/textView5"
