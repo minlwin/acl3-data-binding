@@ -1,6 +1,6 @@
 package com.jdc.convert
 
-import androidx.databinding.*
+import androidx.databinding.BindingConversion
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -10,5 +10,5 @@ object DateConversion {
 
     @JvmStatic
     @BindingConversion
-    fun convertToString(date:Date) = format.format(date)
+    fun convertToString(date: Date) = format.format(date)
 }

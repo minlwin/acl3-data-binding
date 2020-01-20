@@ -12,6 +12,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding:ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.date = Date()
-        binding.wrapper = DateWrapper(Date())
     }
 }
