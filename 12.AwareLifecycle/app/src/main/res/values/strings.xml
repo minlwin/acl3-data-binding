@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">12. Aware Lifecycle</string>
+    <string name="lifecycle_awareness">Lifecycle Awareness</string>
+    <string name="observer_in_activity">Observer In Activity</string>
+    <string name="random">RANDOM</string>
+    <string name="generate">Generate</string>
+    <string name="remove_fragment">Remove Fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="observer_in_fragment">Observer in Fragment</string>
+    <string name="output">OUTPUT</string>
+    <string name="add_fragment">Add Fragment</string>
+</resources>
