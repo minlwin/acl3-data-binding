@@ -18,10 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         val liveData = MutableLiveData<Int>()
 
-        Transformations.map(liveData) {
-            it.toString()
-        }.observe(this, Observer {
-            output1.text = it
+        liveData.observe(this, Observer {
+            output1.text = it.toString()
         })
 
         generateBtn.setOnClickListener {
