@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">11.Getting Start LiveData</string>
+    <string name="getting_start">Getting Start</string>
+    <string name="generate">Generate</string>
+    <string name="output">Output</string>
+    <string name="random_number_with_mutable_livedata">Random Number with Mutable LiveData</string>
+</resources>
