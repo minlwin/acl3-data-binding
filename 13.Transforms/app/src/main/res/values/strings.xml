@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">13. Transforms</string>
+    <string name="switch_map">Switch Map</string>
+    <string name="source_1">Source 1</string>
+    <string name="source_2">Source 2</string>
+    <string name="textview">TextView</string>
+    <string name="switchs">Switch</string>
+    <string name="change">Change</string>
 </resources>
