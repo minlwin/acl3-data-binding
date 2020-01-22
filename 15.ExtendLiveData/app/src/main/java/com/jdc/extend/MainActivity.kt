@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ConnectivityLiveData(this).observe(this,
+        ConnectivityLiveData.getInstance(this).observe(this,
             Observer {
                 output.text = it
             })

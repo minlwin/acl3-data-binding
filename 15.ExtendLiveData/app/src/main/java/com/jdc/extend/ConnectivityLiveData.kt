@@ -6,7 +6,7 @@ import android.net.Network
 import android.os.Build
 import androidx.lifecycle.LiveData
 
-class ConnectivityLiveData(private val context: Context)
+class ConnectivityLiveData private constructor(private val context: Context)
     :LiveData<String>(){
 
     private var service = context
@@ -33,6 +33,17 @@ class ConnectivityLiveData(private val context: Context)
 
     override fun onInactive() {
         service.unregisterNetworkCallback(listener)
+    }
+
+    companion object {
+
+        private lateinit var instance:ConnectivityLiveData
+
+        fun getInstance(context: Context) =
+            if(::instance.isInitialized) instance else
+                ConnectivityLiveData(context).also {
+                    instance = it
+                }
     }
 
 }

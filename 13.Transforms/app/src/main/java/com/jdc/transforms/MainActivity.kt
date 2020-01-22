@@ -47,10 +47,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun updateSource1(v:View) {
-        source1.value = Random.nextInt(1000, 10000)
+        v.also {
+            source1.value = Random.nextInt(1000, 10000)
+        }
     }
 
     fun updateSource2(v: View) {
-        source2.value = Random.nextInt(1000, 10000)
+        v.also {
+            source2.value = Random.nextInt(1000, 10000)
+        }
     }
 }
