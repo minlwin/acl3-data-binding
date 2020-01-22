@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">14. Mediator Live Data</string>
+    <string name="mediator_live_data">Mediator Live Data</string>
+    <string name="source_1">Source 1</string>
+    <string name="source_2">Source 2</string>
+    <string name="textview">TextView</string>
+    <string name="change">Change</string>
+    <string name="output">Output</string>
+</resources>
