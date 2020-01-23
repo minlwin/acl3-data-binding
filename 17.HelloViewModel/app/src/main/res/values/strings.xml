@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">17. Hello ViewModel</string>
+    <string name="hello_view_model">Hello View Model</string>
+    <string name="greet_hello_from_viewmodel">Greet Hello From ViewModel</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="greet">greet</string>
+    <string name="output">Output</string>
+    <string name="select_subject">Select Subject</string>
+</resources>
