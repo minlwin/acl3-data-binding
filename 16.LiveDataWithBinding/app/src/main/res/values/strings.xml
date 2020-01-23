@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">16.LiveData With Binding</string>
+    <string-array name="subjects">
+        <item>Java SE</item>
+        <item>Java Web</item>
+        <item>Java EE</item>
+        <item>Spring</item>
+    </string-array>
+</resources>

@@ -40,11 +40,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun change1(v:View) {
+    fun change1(v:View) = v.also {
         source1.value = Random.nextInt(1000, 10000)
     }
 
-    fun change2(v:View) {
+    fun change2(v:View) = v.also {
         source2.value = Random.nextInt(1000, 10000)
     }
 }
