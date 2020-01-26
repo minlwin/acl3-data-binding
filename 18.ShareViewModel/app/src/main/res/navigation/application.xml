@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/application"
+    app:startDestination="@id/details">
+
+    <fragment
+        android:id="@+id/edit"
+        android:name="com.jdc.share.views.EditFragment"
+        android:label="Edit Student"
+        tools:layout="@layout/fragment_edit" />
+    <fragment
+        android:id="@+id/details"
+        android:name="com.jdc.share.views.DetailsFragment"
+        android:label="Student Details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_details_to_edit"
+            app:destination="@id/edit"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@+id/edit"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -33,7 +33,7 @@ object DateAdapter {
             attrChange.onChange()
         }
     }
-
+    
     @JvmStatic
     @BindingAdapter("android:dateLabel")
     fun dateToString(view:TextView, date: Date?) = date?.let {

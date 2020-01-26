@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">19. Observable View Model</string>
+    <string name="observable_viewmodel">Observable ViewModel</string>
+    <string name="alternative_for_livedata_you_can_use_oveservable">Alternative for LiveData you can use Oveservable</string>
+    <string name="by_using_observables_you_can_get_more_controls_to_ui">By using Observables you can get more controls to UI</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="select_subject">Select Subject</string>
+</resources>

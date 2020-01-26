@@ -5,14 +5,10 @@ import androidx.lifecycle.ViewModel
 
 class HelloViewModel:ViewModel() {
 
-    val name = MutableLiveData<String>()
-    val subject = MutableLiveData<String>()
-
-    val message = MutableLiveData<String>()
-
-    val array = arrayOf<String>("Java SE", "Java EE", "Spring", "Android")
+    var name = MutableLiveData<String>()
+    var message = MutableLiveData<String>()
 
     fun greet() {
-        message.value = "Hello ${name.value}, your subject is ${subject.value}"
+        message.value = "Hello ${name.value}!"
     }
 }

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">18. Share View Model</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="share_view_model">Share View Model</string>
+    <string name="view_model_that_share_between_fragments">View Model that share Between Fragments</string>
+    <string name="this_is_details_view">This is Details View</string>
+    <string name="name">Name</string>
+    <string name="subject">Subject</string>
+    <string name="entrance_date">Entrance Date</string>
+    <string name="edit_student">Edit Student</string>
+    <string name="this_is_edit_view">This is Edit View</string>
+    <string name="enter_student_name">Enter Student Name</string>
+    <string name="enter_entrance_date">Enter Entrance Date</string>
+    <string name="select_subject">Select Subject</string>
+    <string name="save_student">Save Student</string>
+</resources>
