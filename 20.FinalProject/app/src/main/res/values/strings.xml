@@ -4,4 +4,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_category">Add Category</string>
+    <string name="enter_category_name">Enter Category Name</string>
+    <string name="category">Category</string>
+    <string name="product">Product</string>
+    <string name="add_product">Add Product</string>
+    <string name="select_color">Select Color</string>
 </resources>

@@ -15,12 +15,11 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/AppTheme.CircularTextView"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="@{category.title}"
+            app:categoryValue="@{category}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textSize="18sp"
             android:text="@{category.name}"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/textView"

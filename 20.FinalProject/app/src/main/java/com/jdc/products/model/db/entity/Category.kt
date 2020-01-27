@@ -10,5 +10,5 @@ data class Category(
     var color:Int
 ) {
     val title:String
-        get() = name.substring(0, 1).toUpperCase()
+        get() = name.substring(0, 2).toUpperCase()
 }

@@ -3,8 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.jdc.products.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/productEdit"
+        android:icon="@drawable/ic_add"
+        android:title="@string/add_product"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/products"
+        android:icon="@drawable/ic_product"
+        android:title="@string/product"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/categories"
+        android:icon="@drawable/ic_category"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="@string/category"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 </menu>
