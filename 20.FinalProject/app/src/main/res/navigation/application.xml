@@ -32,8 +32,8 @@
     <fragment
         android:id="@+id/productEdit"
         android:name="com.jdc.products.views.ProductEditFragment"
-        android:label="Edit Product"
-        tools:layout="@layout/fragment_product_edit" >
+        android:label="Add Product"
+        tools:layout="@layout/fragment_product_edit">
         <action
             android:id="@+id/action_save_product"
             app:destination="@id/products"
@@ -48,8 +48,8 @@
     <fragment
         android:id="@+id/categoryEdit"
         android:name="com.jdc.products.views.CategoryEditFragment"
-        android:label="Edit Category"
-        tools:layout="@layout/fragment_category_edit" >
+        android:label="Add Category"
+        tools:layout="@layout/fragment_category_edit">
         <action
             android:id="@+id/action_save_category"
             app:destination="@id/categories"
@@ -58,6 +58,7 @@
             app:launchSingleTop="true"
             app:popEnterAnim="@anim/fragment_open_enter"
             app:popExitAnim="@anim/fragment_open_exit"
-            app:popUpTo="@+id/categories" />
+            app:popUpTo="@+id/categories"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

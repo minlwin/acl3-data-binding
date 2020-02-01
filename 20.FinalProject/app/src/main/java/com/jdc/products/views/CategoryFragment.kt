@@ -11,7 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jdc.products.R
 import com.jdc.products.components.adapter.CategoryAdapter
-import com.jdc.products.model.view.CategoryViewModel
+import com.jdc.products.model.db.ProductDatabase
+import com.jdc.products.model.service.CategoryService
 import kotlinx.android.synthetic.main.fragment_category.*
 
 class CategoryFragment : Fragment() {
@@ -30,8 +31,10 @@ class CategoryFragment : Fragment() {
         val adapter = CategoryAdapter()
         recycler.adapter = adapter
 
-        val model by viewModels<CategoryViewModel>()
-        model.list.observe(this, Observer {
+        val service = CategoryService.getInstance(requireContext())
+
+        val list = service.findAll()
+        list.observe(this, Observer {
             adapter.submitList(it)
         })
     }

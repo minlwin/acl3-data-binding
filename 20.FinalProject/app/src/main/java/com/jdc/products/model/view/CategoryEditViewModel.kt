@@ -1,16 +1,20 @@
 package com.jdc.products.model.view
 
 import android.app.Application
+import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.findNavController
 import com.jdc.products.R
 import com.jdc.products.model.db.ProductDatabase
 import com.jdc.products.model.db.entity.Category
 import com.jdc.products.model.service.CategoryService
 import com.jdc.products.utils.resourceColor
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CategoryEditViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -45,17 +49,33 @@ class CategoryEditViewModel(application: Application) : AndroidViewModel(applica
         resourceColor(it) { "text" }
     }
 
-    private var service: CategoryService =
-        CategoryService(ProductDatabase.getDatabase(application).categoryRepo())
+    private var service: CategoryService = CategoryService.getInstance(application)
 
-    fun save() {
+    fun save(view:View) {
 
-        viewModelScope.launch {
-            name.value?.also {
-                colorId.value?.also { c ->
-                    service.create(Category(it, c))
+        name.value?.also {
+            colorId.value?.also { c ->
+                viewModelScope.launch {
+                    service.save(oldCategory, Category(it, c))
+                    oldCategory = null
                 }
+
+                view.findNavController().navigate(R.id.action_save_category)
             }
         }
+    }
+
+    private var oldCategory:String? = null
+
+    fun load(categoryName:String) {
+
+        oldCategory = categoryName
+
+        viewModelScope.launch {
+            val c = service.findById(categoryName)
+            name.value = c?.name
+            color.value = c?.color
+        }
+
     }
 }

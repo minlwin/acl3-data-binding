@@ -14,7 +14,7 @@ interface CategoryRepo {
     fun findAll():LiveData<List<Category>>
 
     @Query("select * from Category where name = :id")
-    fun findById(id:String):LiveData<Category>
+    suspend fun findById(id:String):Category?
 
     @Insert
     fun create(c:Category)

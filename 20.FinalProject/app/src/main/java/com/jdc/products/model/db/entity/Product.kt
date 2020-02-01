@@ -6,17 +6,16 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Product(
-    @PrimaryKey
-    var id:Int,
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0,
     var name:String,
     @ForeignKey(
         entity = Category::class,
         parentColumns = ["name"],
         childColumns = ["category"],
-        onDelete = ForeignKey.SET_NULL,
-        onUpdate = ForeignKey.CASCADE
+        onDelete = ForeignKey.CASCADE
     )
-    var category: String?,
+    var category: String,
     var price:Int,
     var brand:String,
     var description:String

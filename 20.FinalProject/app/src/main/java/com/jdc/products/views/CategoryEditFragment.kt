@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -35,10 +36,13 @@ class CategoryEditFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.model = model
 
-        button.setOnClickListener {
-            model.save()
-            it.findNavController().navigate(R.id.action_save_category)
+        arguments?.getString("name")?.also {
+            model.load(it)
+            val activity = requireActivity() as AppCompatActivity
+            activity.supportActionBar?.title = "Edit Category"
+            button.text = "Save Category"
         }
+
     }
 
 }
