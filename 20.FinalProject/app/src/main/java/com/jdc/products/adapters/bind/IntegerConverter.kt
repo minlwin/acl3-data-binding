@@ -5,7 +5,7 @@ import androidx.databinding.InverseMethod
 object IntegerConverter  {
 
     @JvmStatic
-    fun intToString(int: Int?) = int?.let { it.toString() }
+    fun intToString(int: Int?) = int?.toString()
 
     @JvmStatic
     @InverseMethod("intToString")

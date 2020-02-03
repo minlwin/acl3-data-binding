@@ -1,5 +1,6 @@
 package com.jdc.products.model.view
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.view.View
 import android.widget.Toast
@@ -8,25 +9,25 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.jdc.products.R
-import com.jdc.products.model.db.ProductDatabase
 import com.jdc.products.model.db.entity.Category
 import com.jdc.products.model.service.CategoryService
 import com.jdc.products.utils.noZero
 import com.jdc.products.utils.resourceColor
 import com.jdc.products.utils.validValue
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class CategoryEditViewModel(application: Application) : AndroidViewModel(application) {
 
     val name = MutableLiveData<String>("")
     private val context = application.applicationContext
 
+    @SuppressLint("DefaultLocale")
     val sampleTitle = Transformations.map(name) {
-        if (null == it || it.length <= 2) "CA" else it.substring(0, 2).toUpperCase()
+        if (null == it || it.length <= 2) application.resources.getString(R.string.ca) else it.substring(
+            0,
+            2
+        ).capitalize()
     }
 
     val sampleName = Transformations.map(name) {
@@ -56,7 +57,7 @@ class CategoryEditViewModel(application: Application) : AndroidViewModel(applica
 
     private var service: CategoryService = CategoryService.getInstance(application)
 
-    fun save(view:View) {
+    fun save(view: View) {
         viewModelScope.launch {
             try {
                 val category = Category(
@@ -67,15 +68,15 @@ class CategoryEditViewModel(application: Application) : AndroidViewModel(applica
 
                 oldCategory = null
                 view.findNavController().navigate(R.id.action_save_category)
-            } catch (e:Throwable) {
+            } catch (e: Throwable) {
                 Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private var oldCategory:String? = null
+    private var oldCategory: String? = null
 
-    fun load(categoryName:String) {
+    fun load(categoryName: String) {
 
         oldCategory = categoryName
 

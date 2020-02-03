@@ -14,6 +14,9 @@ interface ProductRepo {
     @Query("select * from Product")
     fun findAll():LiveData<List<ProductWithCategory>>
 
+    @Query("select * from Product where id = :id")
+    fun findById(id:Int):LiveData<Product>
+
     @Insert
     fun create(p:Product):Long
 

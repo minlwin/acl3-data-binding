@@ -10,4 +10,6 @@
     <string name="product">Product</string>
     <string name="add_product">Add Product</string>
     <string name="select_color">Select Color</string>
+    <string name="save_category">Save Category</string>
+    <string name="ca">ca</string>
 </resources>

@@ -20,6 +20,8 @@ class ProductService private constructor(private val dao: ProductRepo) {
         category?.let { dao.findByCategory(it) } ?: dao.findAll()
     }
 
+    fun findById(id:Int) = dao.findById(id)
+
     companion object {
         private lateinit var instance: ProductService
 

@@ -26,12 +26,15 @@ class ProductEditViewModel(application: Application) : AndroidViewModel(applicat
     val price = MutableLiveData<Int>()
     val description = MutableLiveData<String>()
 
+    private var id:Int = 0
+
     fun save(view:View) {
 
         viewModelScope.launch {
 
             try {
                 val product = Product(
+                    id = id,
                     category = category.validValue { "Please Select Category" },
                     name = name.validValue { "Please Enter Product Name" },
                     brand = brand.validValue { "Please Enter Brand Name" },
@@ -41,6 +44,8 @@ class ProductEditViewModel(application: Application) : AndroidViewModel(applicat
 
                 service.save(product)
 
+                id = 0
+
                 view.findNavController().navigate(R.id.action_save_product, Bundle().also {
                     it.putString("category", product.category)
                 })
@@ -49,5 +54,14 @@ class ProductEditViewModel(application: Application) : AndroidViewModel(applicat
                 Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    fun setData(data:Product) {
+        id = data.id
+        category.value = data.category
+        name.value = data.name
+        brand.value = data.brand
+        price.value = data.price
+        description.value = data.description
     }
 }

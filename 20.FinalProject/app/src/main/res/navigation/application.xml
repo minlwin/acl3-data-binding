@@ -28,7 +28,11 @@
         android:id="@+id/products"
         android:name="com.jdc.products.views.ProductFragment"
         android:label="Products"
-        tools:layout="@layout/fragment_product" />
+        tools:layout="@layout/fragment_product" >
+        <action
+            android:id="@+id/action_products_edit"
+            app:destination="@id/productEdit" />
+    </fragment>
     <fragment
         android:id="@+id/productEdit"
         android:name="com.jdc.products.views.ProductEditFragment"

@@ -2,23 +2,17 @@ package com.jdc.products.views
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
-
 import com.jdc.products.R
 import com.jdc.products.databinding.FragmentCategoryEditBinding
 import com.jdc.products.model.view.CategoryEditViewModel
 import kotlinx.android.synthetic.main.fragment_category_edit.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class CategoryEditFragment : Fragment() {
 
     override fun onCreateView(
@@ -40,7 +34,7 @@ class CategoryEditFragment : Fragment() {
             model.load(it)
             val activity = requireActivity() as AppCompatActivity
             activity.supportActionBar?.title = "Edit Category"
-            button.text = "Save Category"
+            button.text = resources.getText(R.string.save_category)
         }
 
     }

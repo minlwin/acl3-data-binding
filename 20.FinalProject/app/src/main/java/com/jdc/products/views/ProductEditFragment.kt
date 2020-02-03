@@ -2,18 +2,17 @@ package com.jdc.products.views
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.map
-
 import com.jdc.products.R
 import com.jdc.products.databinding.FragmentProductEditBinding
 import com.jdc.products.model.service.CategoryService
+import com.jdc.products.model.service.ProductService
 import com.jdc.products.model.view.ProductEditViewModel
 import kotlinx.android.synthetic.main.fragment_product_edit.*
 
@@ -37,8 +36,23 @@ class ProductEditFragment : Fragment() {
         val categories = CategoryService.getInstance(requireContext()).findAll()
         categories.observe(this, Observer {
             val names = it.map { c -> c.name }
-            autoComplete.setAdapter(ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, names))
+            autoComplete.setAdapter(
+                ArrayAdapter<String>(
+                    requireContext(),
+                    android.R.layout.simple_spinner_dropdown_item,
+                    names
+                )
+            )
         })
+
+        arguments?.getInt("id")?.also {
+
+            val service = ProductService.getInstance(requireContext())
+
+            service.findById(it).observe(this, Observer { data ->
+                model.setData(data)
+            })
+        }
     }
 
 }
