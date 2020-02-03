@@ -27,9 +27,16 @@ class CategoryAdapter:ListAdapter<Category, CategoryAdapter.CategoryVH>(object :
     override fun onBindViewHolder(holder: CategoryVH, position: Int) {
         val category = getItem(position)
         holder.binding.category = category
+
         holder.itemView.editBtn.setOnClickListener {
             it.findNavController().navigate(R.id.action_categories_to_categoryEdit, Bundle().also {
                 b -> b.putString("name", category.name)
+            })
+        }
+
+        holder.itemView.icon.setOnClickListener {
+            it.findNavController().navigate(R.id.action_categories_to_products, Bundle().also {
+                b -> b.putString("category", category.name)
             })
         }
     }
