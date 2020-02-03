@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.jdc.products.R
-import com.jdc.products.components.adapter.ProductAdapter
+import com.jdc.products.adapters.list.ProductAdapter
 import com.jdc.products.model.service.ProductService
 import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.coroutines.runBlocking

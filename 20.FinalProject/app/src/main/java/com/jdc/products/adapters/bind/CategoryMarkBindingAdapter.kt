@@ -1,4 +1,4 @@
-package com.jdc.products.components.bind
+package com.jdc.products.adapters.bind
 
 import android.widget.TextView
 import androidx.core.graphics.drawable.DrawableCompat

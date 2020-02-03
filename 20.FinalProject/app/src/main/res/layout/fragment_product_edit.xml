@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.jdc.products.components.bind.IntegerConverter" />
+        <import type="com.jdc.products.adapters.bind.IntegerConverter" />
         <variable
             name="model"
             type="com.jdc.products.model.view.ProductEditViewModel" />

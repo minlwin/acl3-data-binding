@@ -1,4 +1,4 @@
-package com.jdc.products.components.bind
+package com.jdc.products.adapters.bind
 
 import androidx.databinding.InverseMethod
 

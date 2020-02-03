@@ -1,4 +1,4 @@
-package com.jdc.products.components.adapter
+package com.jdc.products.adapters.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
