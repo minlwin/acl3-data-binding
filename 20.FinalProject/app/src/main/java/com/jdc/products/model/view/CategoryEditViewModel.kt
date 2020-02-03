@@ -2,16 +2,20 @@ package com.jdc.products.model.view
 
 import android.app.Application
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.jdc.products.R
 import com.jdc.products.model.db.ProductDatabase
 import com.jdc.products.model.db.entity.Category
 import com.jdc.products.model.service.CategoryService
+import com.jdc.products.utils.noZero
 import com.jdc.products.utils.resourceColor
+import com.jdc.products.utils.validValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,6 +23,7 @@ import kotlinx.coroutines.withContext
 class CategoryEditViewModel(application: Application) : AndroidViewModel(application) {
 
     val name = MutableLiveData<String>("")
+    private val context = application.applicationContext
 
     val sampleTitle = Transformations.map(name) {
         if (null == it || it.length <= 2) "CA" else it.substring(0, 2).toUpperCase()
@@ -52,15 +57,18 @@ class CategoryEditViewModel(application: Application) : AndroidViewModel(applica
     private var service: CategoryService = CategoryService.getInstance(application)
 
     fun save(view:View) {
+        viewModelScope.launch {
+            try {
+                val category = Category(
+                    name.validValue { "Enter Category Name." },
+                    colorId.noZero { "Please Select Color" }
+                )
+                service.save(oldCategory, category)
 
-        name.value?.also {
-            colorId.value?.also { c ->
-                viewModelScope.launch {
-                    service.save(oldCategory, Category(it, c))
-                    oldCategory = null
-                }
-
+                oldCategory = null
                 view.findNavController().navigate(R.id.action_save_category)
+            } catch (e:Throwable) {
+                Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
             }
         }
     }

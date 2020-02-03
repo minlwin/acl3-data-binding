@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.jdc.products.components.bind.IntegerConverter" />
         <variable
             name="model"
             type="com.jdc.products.model.view.ProductEditViewModel" />
@@ -96,7 +97,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={model.price}"
+                android:text="@={IntegerConverter.intToString(model.price)}"
                 android:hint="Enter Price" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,9 +113,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={model.description}"
+                android:gravity="start|top"
                 android:hint="Description"
-                android:lines="3" />
+                android:lines="3"
+                android:text="@={model.description}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

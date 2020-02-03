@@ -26,7 +26,6 @@ class CategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
         recycler.layoutManager = LinearLayoutManager(this.context)
         val adapter = CategoryAdapter()
         recycler.adapter = adapter

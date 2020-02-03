@@ -1,22 +1,23 @@
 package com.jdc.products.model.db.repo
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.jdc.products.model.db.entity.Product
+import com.jdc.products.model.db.entity.ProductWithCategory
 
 @Dao
 interface ProductRepo {
 
     @Query("select * from Product where category = :name")
-    fun findByCategory(name:String?):LiveData<List<Product>>
+    fun findByCategory(name:String):LiveData<List<ProductWithCategory>>
+
+    @Query("select * from Product")
+    fun findAll():LiveData<List<ProductWithCategory>>
 
     @Insert
-    fun create(p:Product)
+    fun create(p:Product):Long
 
-    @Insert
+    @Update
     fun update(p:Product)
 
     @Delete
